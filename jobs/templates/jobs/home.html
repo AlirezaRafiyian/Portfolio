@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Alex Dev</title>
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css'%}">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+    <!-- Css Styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <style>
+        .pimg {
+            background-image: url("{% static 'Code2.jpg' %}");
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background:transparent;">
+
+            <a class="navbar-brand mx-3" style="color:#f9d342;" href="{% url 'home' %}"><img
+                    src="{% static 'Logo.png' %} " class="rounded-circle" height="40" width="40"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-4" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+
+                    <a class="nav-item nav-link active" style="color:#f9d342;" href="#about_me">About me</a>
+                    <a class="nav-item nav-link active" style="color:#f9d342;" href="#contact-me">Contact me</a>
+                    <a class="nav-item nav-link active" style="color:#f9d342;" href="#jobs">Projects</a>
+                    <a class="nav-item nav-link active" style="color:#f9d342;" href="{% url 'allblogs' %}">Blog</a>
+
+                </div>
+            </div>
+
+        </nav>
+
+
+    </header>
+
+
+
+    <div class="pimg">
+        <div class="ptext">
+            Welcome To My Website
+            <br>
+            My Name Is Alex & I'm a developer
+        </div>
+    </div>
+
+    <section id="about_me" class="section section-light about">
+
+        <h2 class="pb-5">About Me</h2>
+        <div class="container" style="display: flex; justify-content: center; align-items: center;">
+            <img class='rounded-circle' src="{% static 'me3.jpg' %} " height="200" width="200" style="float: left;">
+            <p class="m-5">
+                My name is Alex. I'm developer and i have a baccalaureate
+                in software engineering. I started coding for about two years ago
+                most of my day i usaully code i love AI and Robotics topics and major.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact-me" class="section section-dark">
+        <h2 class="pb-5">Contact me</h2>
+        <div class="container">
+            <div class="row pt-2" style="justify-content: space-between; display: flex;">
+                <div class="col-md-3">
+                    <a href="https://www.instagram.com/alexra7hs/"><img class="rounded-circle"
+                            src="{% static 'instagram.png'%}" height="100px" width="100px"></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="https://github.com/Alex7hss"><img class="rounded-circle" src="{% static 'Github.png'%}"
+                            height="100px" width="100px"></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="mailto:alex7hss@gmail.com"><img src="{% static 'Gmail.png'%}" height="100px"
+                            width="100px"></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="https://www.linkedin.com/in/alex-ra-ab2b2221a/"><img class="rounded-circle" src="{% static 'linkedin.png'%}" height="100px"
+                            width="100px"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jobs" class="section section-light">
+        <h2>Projects</h2>
+        <div class="container">
+            <div class="row">
+                {% for job in jobs.all %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ job.image.url }}" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text"> {{ job.summary }} </p>
+                            <a href="{{job.link}}">{{ job.link }}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <h2> Projects Gallery </h2>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for job in jobs.all %}
+                <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                    <img class="d-block w-100" src="{{ job.image.url }}">
+                </div>
+                {% endfor %}
+            </div>
+
+    </section>
+
+
+
+    <footer class="text-muted">
+        <div class="container text-center">
+            <p class="pt-3">CopyRight Alex Ra {% now "Y" %}</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+
+
+</body>
+
+</html>
