@@ -2,8 +2,10 @@
 ![Screenshot](carbon.png)
 [![Python](https://img.shields.io/badge/Python-3.0-blue)](https://www.python.org/downloads/release/python-390/)
 
+[![Django](https://img.shields.io/badge/Django-4.2-green)](https://www.djangoproject.com/download/)
+
 ## Description
-This is a Portfolio Webpage with Django framework.
+This is a Portfolio Webpage with the Django framework.
 
 ## Installation
 1. Make sure you have Python 3.0 installed. You can download it from [here](https://www.python.org/downloads/release/python-390/).
